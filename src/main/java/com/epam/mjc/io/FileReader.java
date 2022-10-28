@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class FileReader {
 
     static final Logger LOGGER = LogManager.getLogger();
+
     public Profile getDataFromFile(File file) {
         String name = "";
         int age = 0;
@@ -33,9 +35,9 @@ public class FileReader {
                 }
             }
         } catch (FileNotFoundException e) {
-            LOGGER.error("File was not found. " + e.getMessage());
+            LOGGER.error("File was not found. ", e);
         } catch (IOException ex) {
-            LOGGER.error("Read line Error. " + ex);
+            LOGGER.error("Read line Error. ", ex);
         }
         return new Profile(name, age, email, phone);
     }
