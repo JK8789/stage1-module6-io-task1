@@ -29,9 +29,9 @@ public class FileReader {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("File was not found." + e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("File was not found. " + e);
+        } catch (IOException ex) {
+            System.out.println("Read line Error. " + ex);
         }
         return new Profile(name, age, email, phone);
     }
